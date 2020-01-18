@@ -8,7 +8,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ##steps to server up for windows
 1.download puttygen in localdisk c
+
+
+
+
+
+
 2.open jsonopen batch file
+
+
+
+
 3.and run localhost:3000 
 
 ## Code scaffolding
