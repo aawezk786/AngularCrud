@@ -1,0 +1,11 @@
+<div class="panel panel-primary" [class.panel-success]="hasJustViewed">
+  <div class="panel-heading pointerCursor" (click)="isHidden = !isHidden">
+    <h3 class="panel-title">{{title | uppercase}}</h3>
+  </div>
+  <div class="panel-body" [hidden]="isHidden">
+    <ng-content select=".myPanelBody"></ng-content>
+  </div>
+  <div class="panel-footer" [hidden]="isHidden">
+      <ng-content select=".myPanelFooter"></ng-content>
+  </div>
+</div>

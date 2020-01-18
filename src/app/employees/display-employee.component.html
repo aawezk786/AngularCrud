@@ -1,0 +1,86 @@
+<app-accordion [title]="employee.name" 
+  [hasJustViewed]="selectedEmployeeId === employee.id"
+  [isHidden]="true">
+  <div class="col-xs-10 myPanelBody">
+    <div class="row vertical-align">
+      <div class="col-xs-4">
+        <img class="imageClass" [src]="employee.photoPath" />
+      </div>
+      <div class="col-xs-8">
+
+        <div class="row">
+          <div class="col-xs-6">
+            Gender
+          </div>
+          <div class="col-xs-6">
+            : {{employee.gender}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Date of Birth
+          </div>
+          <div class="col-xs-6">
+            : {{employee.dateOfBirth | date}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Contact Preference
+          </div>
+          <div class="col-xs-6">
+            : {{employee.contactPreference}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Phone
+          </div>
+          <div class="col-xs-6">
+            : {{employee.phoneNumber}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Email
+          </div>
+          <div class="col-xs-6">
+            : {{employee.email}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Department
+          </div>
+          <div class="col-xs-6" [ngSwitch]="employee.department">
+            :
+            <span *ngSwitchCase="1">Help Desk</span>
+            <span *ngSwitchCase="2">HR</span>
+            <span *ngSwitchCase="3">IT</span>
+            <span *ngSwitchCase="4">Payroll</span>
+            <span *ngSwitchDefault>N/A</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            Is Active
+          </div>
+          <div class="col-xs-6">
+            : {{employee.isActive}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="myPanelFooter">
+      <button class="btn btn-primary" (click)="viewEmployee()">View</button>
+      <button class="btn btn-primary" (click)="editEmployee()">Edit</button>
+      <span *ngIf="confirmDelete">
+        <span>Are you sure you want to Delete?</span>
+        <button class="btn btn-danger" (click)="deleteEmployee()">Yes</button>
+        <button class="btn btn-primary" (click)="confirmDelete=false">No</button>
+      </span>
+      <button *ngIf="!confirmDelete" class="btn btn-danger" (click)="confirmDelete=true">Delete</button>
+  </div>
+</app-accordion>
